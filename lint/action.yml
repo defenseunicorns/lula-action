@@ -1,0 +1,27 @@
+name: "Lint"
+description: "Lints targeted OSCAL files for schema compliance"
+
+inputs:
+  oscal-target:
+    description: "The target file to be linted"
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: |
+        #!/bin/bash
+        # Base url for zarf release artifacts
+        target="${{ inputs.oscal-target }}"
+
+        # Check if the file exists
+        if [! -f "$target" ]; then
+          echo "File $target does not exist"
+          exit 1
+        fi
+
+        # Lint the file with Lula
+        lula tools lint -f "$target"
+
+
+       

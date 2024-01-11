@@ -1,0 +1,41 @@
+name: "Validate"
+description: "Performs the Lula validation and evaluation"
+
+inputs:
+  oscal-target:
+    description: "The target file to be validated"
+  threshold:
+    description: "The assessment result file to compare against. Attempts to find assessment-results.yaml if not specified"
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: |
+        #!/bin/bash
+        # Base url for lula artifacts
+        target_dir="${HOME}/.lula-cache"
+        threshold="${{ inputs.threshold }}"
+        target="{{ inputs.oscal-target }}"
+
+        # Check if the target file exists
+        if [! -f "$target" ]; then
+          echo "File $target does not exist"
+          exit 1
+        fi
+
+        # Check if the threshold variable is empty - otherwise use the threshold
+        if [ -z "$threshold" ]; then
+          lula validate -f "$target" -a "$target_dir/assessment-results.yaml"
+          # Check if default assessment results file exists
+          if [ -f "assessment-results.yaml" ]; then
+            lula evaluate -f assessment-results.yaml -f "$target_dir/assessment-results.yaml"
+          else
+            echo "No threshold exists - will not perform evaluation"
+            # exiting zero here currently - could be worth exiting non-zero
+            exit 0
+          fi
+        else
+          lula validate -f "$target" -a "$target_dir/assessment-results.yaml"
+          lula evaluate -f "$threshold" -f "$target_dir/assessment-results.yaml"
+        fi
