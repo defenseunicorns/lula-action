@@ -11,17 +11,32 @@ runs:
     - shell: bash
       run: |
         #!/bin/bash
-        # Base url for zarf release artifacts
-        target="${{ inputs.oscal-target }}"
+        # Sets up array of targets
+        IFS=' ' read -r -a targets <<< "${{ inputs.oscal-target }}"
 
-        # Check if the file exists
-        if [ ! -f "$target" ]; then
-          echo "File $target does not exist"
-          exit 1
-        fi
+        lint_errors=0
+
+        # Loop through each file and lint
+        for target in "${targets[@]}"; do
+          # Check if the file exists
+          if [ ! -f "$target" ]; then
+              echo "File $target does not exist"
+              lint_errors=$((lint_errors + 1))
+              continue
+          fi
 
         # Lint the file with Lula
-        lula tools lint -f "$target"
+          echo "Linting $target"
+          lula tools lint -f "$target" || {
+              echo "Linting failed for $target"
+              lint_errors=$((lint_errors + 1))
+          }
+        done
 
-
-       
+        # Check if there were any lint errors
+        if [ "$lint_errors" -ne 0 ]; then
+            echo "Linting failed for one or more files."
+            exit 1
+        else
+            echo "All files linted successfully."
+        fi
