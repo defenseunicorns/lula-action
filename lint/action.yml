@@ -14,21 +14,29 @@ runs:
         # Sets up array of targets
         IFS=' ' read -r -a targets <<< "${{ inputs.oscal-target }}"
 
+        lint_errors=0
+
         # Loop through each file and lint
         for target in "${targets[@]}"; do
           # Check if the file exists
           if [ ! -f "$target" ]; then
-            echo "File $target does not exist"
-            continue
+              echo "File $target does not exist"
+              lint_errors=$((lint_errors + 1))
+              continue
           fi
-
-        # Check if the file exists
-        if [ ! -f "$target" ]; then
-          echo "File $target does not exist"
-          exit 1
-        fi
 
         # Lint the file with Lula
           echo "Linting $target"
-          lula tools lint -f "$target"
+          lula tools lint -f "$target" || {
+              echo "Linting failed for $target"
+              lint_errors=$((lint_errors + 1))
+          }
         done
+
+        # Check if there were any lint errors
+        if [ "$lint_errors" -ne 0 ]; then
+            echo "Linting failed for one or more files."
+            exit 1
+        else
+            echo "All files linted successfully."
+        fi
