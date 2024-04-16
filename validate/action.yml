@@ -16,7 +16,7 @@ runs:
         # Base url for lula artifacts
         target_dir="${HOME}/.lula-cache"
         threshold="${{ inputs.threshold }}"
-        target="{{ inputs.oscal-target }}"
+        target="${{ inputs.oscal-target }}"
 
         # Check if the target file exists
         if [ ! -f "$target" ]; then
