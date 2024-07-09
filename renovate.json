@@ -25,6 +25,13 @@
       "extractVersion": "^go (.*)$",
       "fileMatch": ["defenseunicorns/lula/go.mod"],
       "versioning": "semver-coerced"
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchPackageNames": ["defenseunicorns/lula"],
+      "extractVersion": "^v(.*)$",
+      "groupName": "Lula GitHub Action",
+      "versioning": "semver-coerced"
     }
   ],
   "labels": ["dependencies"],
