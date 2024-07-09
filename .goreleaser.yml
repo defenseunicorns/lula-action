@@ -1,0 +1,31 @@
+project_name: lula-action
+release:
+  github:
+    owner: defenseunicorns
+    name: lula-action
+  prerelease: auto
+  mode: append
+  draft: false
+
+builds:
+  - id: lula-action-build
+    dir: "."
+    hooks:
+      pre: make clean
+
+archives:
+  - id: lula-action-build
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - "**/*"
+      - "!**/.*"
+    format_overrides:
+      - goos: "windows"
+        format: "zip"
+    format: tar.gz
+
+checksum:
+  name_template: "{{ .ProjectName }}_checksums.txt"
+
+changelog:
+  use: github-native

@@ -18,6 +18,13 @@
       "matchDepTypes": ["devDependencies"],
       "automerge": true,
       "automergeType": "pr"
+    },
+    {
+      "datasource": "github-tags",
+      "depName": "defenseunicorns/lula",
+      "extractVersion": "^go (.*)$",
+      "fileMatch": ["defenseunicorns/lula/go.mod"],
+      "versioning": "semver-coerced"
     }
   ],
   "labels": ["dependencies"],
