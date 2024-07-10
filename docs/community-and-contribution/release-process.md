@@ -4,7 +4,7 @@ This document provides guidance on how to create Lula-Action releases, address r
 
 ## Creating releases
 
-This project uses [goreleaser](https://github.com/goreleaser/goreleaser-action) for releasing binaries and [release-please](https://github.com/marketplace/actions/release-please-action) for creating release PR's.
+This project uses [release-please](https://github.com/marketplace/actions/release-please-action) for creating release PR's.
 
 ### How should I write my commits?
 
@@ -38,12 +38,4 @@ The CHANGELOG is not required to be updated, only the release notes must be upda
 ```md
 >[!WARNING]
 >PLEASE USE A NEWER VERSION (there are known issues with this release)
-```
-
-#### Other issues and helpful tips
-
-- Confirm that the goreleaser configuration is valid by using the [goreleaser cli](https://goreleaser.com/cmd/goreleaser_check/?h=valid)
-
-```sh
-goreleaser check .goreleaser.yaml [flags]
 ```
