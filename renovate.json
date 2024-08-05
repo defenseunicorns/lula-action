@@ -6,7 +6,7 @@
   ],
   "ignorePaths": ["**/adr/**", "**/docs/**", "**/test/**"],
   "timezone": "America/New_York",
-  "schedule": ["after 12pm and before 11am every weekday"],
+  "schedule": ["after 12pm every weekday", "before 11am every weekday"],
   "dependencyDashboardTitle": "Renovate Dashboard 🤖",
   "packageRules": [
     {
@@ -18,13 +18,6 @@
       "matchDepTypes": ["devDependencies"],
       "automerge": true,
       "automergeType": "pr"
-    },
-    {
-      "datasource": "github-tags",
-      "depName": "defenseunicorns/lula",
-      "extractVersion": "^go (.*)$",
-      "fileMatch": ["defenseunicorns/lula/go.mod"],
-      "versioning": "semver-coerced"
     },
     {
       "matchDatasources": ["github-tags"],
