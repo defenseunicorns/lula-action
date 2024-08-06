@@ -10,7 +10,7 @@ Make [Lula](https://github.com/defenseunicorns/lula) available to your GitHub Ac
   uses: defenseunicorns/lula-action/setup@main
   with:
     # renovate: datasource=github-tags depName=defenseunicorns/lula extractVersion="^v(.*)$" versioning=semver-coerced
-    version: v0.4.1
+    version: v0.4.5
 
 - name: Lint OSCAL file
   uses: defenseunicorns/lula-action/lint@main
@@ -25,11 +25,12 @@ Make [Lula](https://github.com/defenseunicorns/lula) available to your GitHub Ac
   uses: defenseunicorns/lula/setup@main
   with:
     # renovate: datasource=github-tags depName=defenseunicorns/lula extractVersion="^v(.*)$" versioning=semver-coerced
-    version: v0.4.1
+    version: v0.4.5
 
 - name: Perform Validation of OSCAL
   uses: defenseunicorns/lula-action/validate@main
   with:
-    oscal-target: oscal-component.yaml
+    oscal-file: oscal-component.yaml
     threshold: assessment-results.yaml
+    target: framework
 ```
