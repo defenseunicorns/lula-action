@@ -1,41 +1,48 @@
 name: "Validate"
-description: "Performs the Lula validation and evaluation"
+description: "Performs Lula Validate"
 
 inputs:
-  oscal-target:
-    description: "The target file to be validated"
-  threshold:
-    description: "The assessment result file to compare against. Attempts to find assessment-results.yaml if not specified"
+  component-definition:
+    description: "The component-definition file to be validated"
+  assessment-result:
+    description: "The output location of the assessment result file. Defaults to ./assessment-results.yaml if not specified"
+  target:
+    description: "The framework prop to target"
+  options:
+    description: "Any additional flag options"
 
 runs:
   using: "composite"
   steps:
     - shell: bash
       run: |
-        #!/bin/bash
+       #!/bin/bash
         # Base url for lula artifacts
-        target_dir="${HOME}/.lula-cache"
-        threshold="${{ inputs.threshold }}"
-        target="${{ inputs.oscal-target }}"
+        file_dir="${HOME}/.lula-cache"
+        assessment-result="${{ inputs.assessment-result }}"
+        component-definition="${{ inputs.component-definition }}"
+        target="${{ inputs.target }}"
+        options="${{ inputs.options }}"
 
-        # Check if the target file exists
-        if [ ! -f "$target" ]; then
-          echo "File $target does not exist"
+        # Check if the component-definition exists
+        if [ ! -f "$component-definition" ]; then
+          echo "Component Definition does not exist"
           exit 1
-        fi
-
-        # Check if the threshold variable is empty - otherwise use the threshold
-        if [ -z "$threshold" ]; then
-          lula validate -f "$target" -a "$target_dir/assessment-results.yaml"
-          # Check if default assessment results file exists
-          if [ -f "assessment-results.yaml" ]; then
-            lula evaluate -f assessment-results.yaml -f "$target_dir/assessment-results.yaml"
-          else
-            echo "No threshold exists - will not perform evaluation"
-            # exiting zero here currently - could be worth exiting non-zero
-            exit 0
-          fi
         else
-          lula validate -f "$target" -a "$target_dir/assessment-results.yaml"
-          lula evaluate -f "$threshold" -f "$target_dir/assessment-results.yaml"
-        fi
+          # Check if assessment-result output is set
+          if [ -z "$assessment-result" ]; then
+           assessment-result="./assessment-results.yaml"
+          fi
+          if [ -n "$target" ]; then
+            if [ -n "$options" ]; then
+              lula validate -f "$component-definition" -t "$target" -o "$assessment-result" "$options"
+            else
+              lula validate -f "$component-definition" -t "$target" -o "$assessment-result"
+            fi
+          else
+            if [ -n "$options" ]; then
+              lula validate -f "$component-definition" -o "$assessment-result" "$options"
+            else
+              lula validate -f "$component-definition" -o "$assessment-result"
+            fi
+          fi
