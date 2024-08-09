@@ -35,8 +35,8 @@ The options input is optional and only needed to pass in additional `lula valida
 - name: Perform Validation of OSCAL
   uses: defenseunicorns/lula-action/validate@main
   with:
-    component-definition: oscal-component.yaml
-    assessment-result: assessment-results.yaml
+    component_definition: oscal-component.yaml
+    assessment_result: assessment-results.yaml
     target: framework
     options: --non-interactive
 ```
@@ -57,7 +57,7 @@ The options input is optional and only needed to pass in additional `lula evalua
 - name: Perform Evaluation of Assessment Results
   uses: defenseunicorns/lula-action/validate@main
   with:
-    assessment-result: oscal-component.yaml
+    assessment_result: oscal-component.yaml
     threshold: assessment-results.yaml
     target: framework
     options: --summary

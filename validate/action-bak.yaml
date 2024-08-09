@@ -6,6 +6,8 @@ inputs:
     description: "The component_definition file to be validated"
   assessment_result:
     description: "The output location of the assessment result file. Defaults to ./assessment_results.yaml if not specified"
+  target:
+    description: "The framework prop to target"
   options:
     description: "Any additional flag options"
 
@@ -17,6 +19,7 @@ runs:
        #!/bin/bash
         assessment_result="${{ inputs.assessment_result }}"
         component_definition="${{ inputs.component_definition }}"
+        target="${{ inputs.target }}"
         options="${{ inputs.options }}"
 
         # Check if the component_definition exists
@@ -28,4 +31,17 @@ runs:
           if [ -z "$assessment_result" ]; then
            assessment_result="./assessment-results.yaml"
           fi
-          lula validate -f "$component_definition" -o "$assessment_result" "$options"
+          if [ -n "$target" ]; then
+            if [ -n "$options" ]; then
+              lula validate -f "$component_definition" -t "$target" -o "$assessment_result" "$options"
+            else
+              lula validate -f "$component_definition" -t "$target" -o "$assessment_result"
+            fi
+          else
+            if [ -n "$options" ]; then
+              lula validate -f "$component_definition" -o "$assessment_result" "$options"
+            else
+              lula validate -f "$component_definition" -o "$assessment_result"
+            fi
+          fi
+        fi
