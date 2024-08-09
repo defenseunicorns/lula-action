@@ -6,8 +6,6 @@ inputs:
     description: "The assessment result file to be Evaluated against the Threshold or contains two results to Evaluate"
   threshold:
     description: "The assessment result file to be compared against. Attempts to find assessment-results.yaml if not specified"
-  target:
-    description: "The framework prop to target"
   options:
     description: "Any additional flag options"
 
@@ -19,7 +17,6 @@ runs:
         #!/bin/bash
         threshold="${{ inputs.threshold }}"
         file="${{ inputs.assessment-result }}"
-        target="${{ inputs.target }}"
         options="${{ inputs.options }}"
 
         # Determine if assessment-results.yaml exists
@@ -33,50 +30,9 @@ runs:
           threshold="assessment-results.yaml"
         fi
 
-        # Evaluate based on the available inputs
-        if [ -n "$threshold" ] && [ -n "$file" ]; then
-          if [ -n "$target" ]; then
-            if [ -n "$options" ]; then
-              lula evaluate -f "$threshold" -f "$file" -t "$target" "$options"
-            else
-              lula evaluate -f "$threshold" -f "$file" -t "$target"
-            fi
-          else
-            if [ -n "$options" ]; then
-              lula evaluate -f "$threshold" -f "$file" "$options"
-            else
-              lula evaluate -f "$threshold" -f "$file"
-            fi
-          fi
-        elif [ -n "$threshold" ]; then
-          if [ -n "$target" ]; then
-            if [ -n "$options" ]; then
-              lula evaluate -f "$threshold" -t "$target" "$options"
-            else
-              lula evaluate -f "$threshold" -t "$target"
-            fi
-          else
-            if [ -n "$options" ]; then
-              lula evaluate -f "$threshold" "$options"
-            else
-              lula evaluate -f "$threshold"
-            fi
-          fi
-        elif [ -n "$file" ]; then
-          if [ -n "$target" ]; then
-            if [ -n "$options" ]; then
-              lula evaluate -f "$file" -t "$target" "$options"
-            else
-             lula evaluate -f "$file" -t "$target"
-            fi
-          else
-            if [ -n "$options" ]; then
-              lula evaluate -f "$file"
-            else
-              lula evaluate -f "$file"
-            fi
-          fi
+        # Check for user input of assessment-results.yaml file
+        if [ -z "$file" ]; then
+          lula evaluate -f "$threshold" -f "$file" $options
         else
-          echo "no assessment results to compare"
-          exit 1
+          lula evaluate -f "$threshold" $options
         fi

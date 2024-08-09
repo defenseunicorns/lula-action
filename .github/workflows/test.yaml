@@ -33,14 +33,42 @@ jobs:
         with:
             oscal_target: ./test/valid-multi-component.yaml
 
-      - name: Validate OSCAL component-definition file
+      - name: Validate OSCAL component-definition file without options
         uses: ./validate/
         with:
           component_definition: ./test/valid-multi-component.yaml
           assessment_result: ./test/oscal-assessment-results.yaml
           options:
 
-      - name: Evaluate OSCAL assessment-results file(s)
+      - name: Validate OSCAL component-definition file with options
+        uses: ./validate/
+        with:
+          component_definition: ./test/valid-multi-component.yaml
+          assessment_result: ./test/oscal-assessment-results.yaml
+          options: -t rev5
+
+
+      - name: Evaluate OSCAL assessment-results file without options
         uses: ./evaluate/
         with:
           threshold: ./test/oscal-assessment-results.yaml
+
+      - name: Evaluate OSCAL assessment-results files without options
+        uses: ./evaluate/
+        with:
+          threshold: ./test/oscal-assessment-results.yaml
+          file: ./test/assessment-results.yaml
+
+
+      - name: Evaluate OSCAL assessment-results file(s) with options
+        uses: ./evaluate/
+        with:
+          threshold: ./test/oscal-assessment-results.yaml
+          options: -t rev5
+
+      - name: Evaluate OSCAL assessment-results files with options
+        uses: ./evaluate/
+        with:
+          threshold: ./test/oscal-assessment-results.yaml
+          file: ./test/assessment-results.yaml
+          options: -t rev5
