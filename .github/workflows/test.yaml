@@ -20,10 +20,10 @@ jobs:
           fetch-depth: 0
 
       - name: List directory contents for debugging
-        run: ls -al ./setup/
+        run: ls -al
 
       - name: Setup Lula
-        uses: ./setup/action.yaml
+        uses: ./lula-action/setup/action.yaml
         with:
              # renovate: datasource=github-tags depName=defenseunicorns/lula extractVersion="^v(.*)$" versioning=semver-coerced
           version: v0.4.5
@@ -31,17 +31,17 @@ jobs:
       - name: Lint OSCAL file
         uses: ./lint/action.yaml
         with:
-            oscal-target: ./test/valid-multi-component.yaml
+            oscal-target: ./lula-action/test/valid-multi-component.yaml
 
       - name: Validate OSCAL component-definition file
         uses: ./validate/action.yaml
         with:
           component-definition: ./test/valid-multi-component.yaml
-          assessment-result: ./test/oscal-assessmen-results.yaml
+          assessment-result: ./lula-action/test/oscal-assessmen-results.yaml
           target: il4
           options:
 
       - name: Evaluate OSCAL assessment-results file(s)
-        uses: ./evaluate/action.yaml
+        uses: ./lula-action/evaluate/action.yaml
         with:
           threshold: ./test/oscal-assessmen-results.yaml
