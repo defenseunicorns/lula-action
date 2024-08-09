@@ -28,6 +28,9 @@ jobs:
              # renovate: datasource=github-tags depName=defenseunicorns/lula extractVersion="^v(.*)$" versioning=semver-coerced
           version: v0.4.5
 
+      - name: Change Directories
+        run: cd lula-action
+
       - name: Lint OSCAL file
         uses: ./lint/action.yaml
         with:
