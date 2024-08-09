@@ -17,13 +17,9 @@ jobs:
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           ref: ${{ github.head_ref }}
-          fetch-depth: 0
 
       - name: List directory contents for debugging
         run: ls -al
-
-      - name: Change Directories
-        run: cd lula-action
 
       - name: Setup Lula
         uses: ./setup/action.yaml
