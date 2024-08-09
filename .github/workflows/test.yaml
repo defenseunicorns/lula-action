@@ -22,18 +22,18 @@ jobs:
         run: ls -al
 
       - name: Setup Lula
-        uses: ./setup/action.yaml
+        uses: ./setup/
         with:
              # renovate: datasource=github-tags depName=defenseunicorns/lula extractVersion="^v(.*)$" versioning=semver-coerced
           version: v0.4.5
 
       - name: Lint OSCAL file
-        uses: ./lint/action.yaml
+        uses: ./lint/
         with:
             oscal-target: ./test/valid-multi-component.yaml
 
       - name: Validate OSCAL component-definition file
-        uses: ./validate/action.yaml
+        uses: ./validate/
         with:
           component-definition: ./test/valid-multi-component.yaml
           assessment-result: ./test/oscal-assessmen-results.yaml
@@ -41,6 +41,6 @@ jobs:
           options:
 
       - name: Evaluate OSCAL assessment-results file(s)
-        uses: ./evaluate/action.yaml
+        uses: ./evaluate/
         with:
           threshold: ./test/oscal-assessmen-results.yaml
