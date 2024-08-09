@@ -31,7 +31,7 @@ jobs:
       - name: Lint OSCAL file
         uses: ./lint/
         with:
-            oscal-target: ./test/valid-multi-component.yaml
+            oscal_target: ./test/valid-multi-component.yaml
 
       - name: Validate OSCAL component-definition file
         uses: ./validate/

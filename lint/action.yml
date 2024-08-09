@@ -2,7 +2,7 @@ name: "Lint"
 description: "Lints targeted OSCAL files for schema compliance"
 
 inputs:
-  oscal-target:
+  oscal_target:
     description: "The target file to be linted"
 
 runs:
@@ -12,7 +12,7 @@ runs:
       run: |
         #!/bin/bash
         # Base url for zarf release artifacts
-        target="${{ inputs.oscal-target }}"
+        target="${{ inputs.oscal_target }}"
 
         # Check if the file exists
         if [ ! -f "$target" ]; then
