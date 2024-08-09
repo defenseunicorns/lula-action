@@ -1,0 +1,47 @@
+name: Test
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: List directory contents for debugging
+        run: ls -al ./setup/
+
+      - name: Setup Lula
+        uses: ./setup/action.yaml
+        with:
+             # renovate: datasource=github-tags depName=defenseunicorns/lula extractVersion="^v(.*)$" versioning=semver-coerced
+          version: v0.4.5
+
+      - name: Lint OSCAL file
+        uses: ./lint/action.yaml
+        with:
+            oscal-target: ./test/valid-multi-component.yaml
+
+      - name: Validate OSCAL component-definition file
+        uses: ./validate/action.yaml
+        with:
+          component-definition: ./test/valid-multi-component.yaml
+          assessment-result: ./test/oscal-assessmen-results.yaml
+          target: il4
+          options:
+
+      - name: Evaluate OSCAL assessment-results file(s)
+        uses: ./evaluate/action.yaml
+        with:
+          threshold: ./test/oscal-assessmen-results.yaml
