@@ -44,3 +44,4 @@ runs:
               lula validate -f "$component_definition" -o "$assessment_result"
             fi
           fi
+        fi
