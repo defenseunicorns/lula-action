@@ -38,7 +38,7 @@ jobs:
         with:
           component_definition: ./test/valid-multi-component.yaml
           assessment_result: ./test/oscal-assessment-results.yaml
-          options: -t rev5
+          options:
 
       - name: Evaluate OSCAL assessment-results file(s)
         uses: ./evaluate/
