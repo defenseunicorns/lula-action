@@ -28,5 +28,5 @@ runs:
           if [ -z "$assessment_result" ]; then
            assessment_result="./assessment-results.yaml"
           fi
-          lula validate -f "$component_definition" -o "$assessment_result" "$options"
+          lula validate -f "$component_definition" -o "$assessment_result" $options
         fi
