@@ -36,8 +36,8 @@ jobs:
       - name: Validate OSCAL component-definition file
         uses: ./validate/
         with:
-          component-definition: ./test/valid-multi-component.yaml
-          assessment-result: ./test/oscal-assessment-results.yaml
+          component_definition: ./test/valid-multi-component.yaml
+          assessment_result: ./test/oscal-assessment-results.yaml
           target: il4
           options:
 
