@@ -36,11 +36,11 @@ jobs:
         uses: ./validate/
         with:
           component-definition: ./test/valid-multi-component.yaml
-          assessment-result: ./test/oscal-assessmen-results.yaml
+          assessment-result: ./test/oscal-assessment-results.yaml
           target: il4
           options:
 
       - name: Evaluate OSCAL assessment-results file(s)
         uses: ./evaluate/
         with:
-          threshold: ./test/oscal-assessmen-results.yaml
+          threshold: ./test/oscal-assessment-results.yaml
