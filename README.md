@@ -8,13 +8,13 @@ Make [Lula](https://github.com/defenseunicorns/lula) available to your GitHub Ac
 
 ```yaml
 - name: Setup Lula
-  uses: defenseunicorns/lula-action/setup@main
+  uses: defenseunicorns/lula-action/setup@v0.0.1
   with:
     # renovate: datasource=github-tags depName=defenseunicorns/lula extractVersion="^v(.*)$" versioning=semver-coerced
-    version: v0.4.5
+    version: v0.5.0
 
 - name: Lint OSCAL file
-  uses: defenseunicorns/lula-action/lint@main
+  uses: defenseunicorns/lula-action/lint@v0.0.1
   with:
     oscal-target: oscal-component.yaml
 ```
@@ -27,18 +27,17 @@ The options input is optional and only needed to pass in additional `lula valida
 
 ```yaml
 - name: Setup Lula
-  uses: defenseunicorns/lula/setup@main
+  uses: defenseunicorns/lula/setup@v0.0.1
   with:
     # renovate: datasource=github-tags depName=defenseunicorns/lula extractVersion="^v(.*)$" versioning=semver-coerced
-    version: v0.4.5
+    version: v0.5.0
 
 - name: Perform Validation of OSCAL
-  uses: defenseunicorns/lula-action/validate@main
+  uses: defenseunicorns/lula-action/validate@v0.0.1
   with:
     component_definition: oscal-component.yaml
     assessment_result: assessment-results.yaml
-    target: framework
-    options: --non-interactive
+    options: -t rev5
 ```
 
 ### Evaluating Two Results in Assessment Results File(s)
@@ -49,16 +48,15 @@ The options input is optional and only needed to pass in additional `lula evalua
 
 ```yaml
 - name: Setup Lula
-  uses: defenseunicorns/lula/setup@main
+  uses: defenseunicorns/lula/setup@v0.0.1
   with:
     # renovate: datasource=github-tags depName=defenseunicorns/lula extractVersion="^v(.*)$" versioning=semver-coerced
-    version: v0.4.5
+    version: v0.5.0
 
 - name: Perform Evaluation of Assessment Results
-  uses: defenseunicorns/lula-action/validate@main
+  uses: defenseunicorns/lula-action/validate@v0.0.1
   with:
     assessment_result: oscal-component.yaml
     threshold: assessment-results.yaml
-    target: framework
-    options: --summary
+    options: -t rev5
 ```
