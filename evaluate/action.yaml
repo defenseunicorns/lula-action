@@ -1,0 +1,38 @@
+name: "Evaluate"
+description: "Performs the Lula Evaluation"
+
+inputs:
+  assessment-result:
+    description: "The assessment result file to be Evaluated against the Threshold or contains two results to Evaluate"
+  threshold:
+    description: "The assessment result file to be compared against. Attempts to find assessment-results.yaml if not specified"
+  options:
+    description: "Any additional flag options"
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: |
+        #!/bin/bash
+        threshold="${{ inputs.threshold }}"
+        file="${{ inputs.assessment-result }}"
+        options="${{ inputs.options }}"
+
+        # Determine if assessment-results.yaml exists
+        if [ -z "$threshold" ] && [ -z "$file" ] && [ ! -f "assessment-results.yaml" ]; then
+          echo "no assessment results found"
+          exit 1
+        fi
+
+        # Set default threshold to assessment-results.yaml if threshold is not provided and the file exists
+        if [ -z "$threshold" ] && [ -f "assessment-results.yaml" ]; then
+          threshold="assessment-results.yaml"
+        fi
+
+        # Check for user input of assessment-results.yaml file
+        if [ -z "$file" ]; then
+          lula evaluate -f "$threshold" -f "$file" $options
+        else
+          lula evaluate -f "$threshold" $options
+        fi

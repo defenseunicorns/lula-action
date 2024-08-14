@@ -1,0 +1,348 @@
+assessment-results:
+  import-ap:
+    href: ""
+  metadata:
+    last-modified: 2024-08-09T21:01:41.721806727Z
+    oscal-version: 1.1.2
+    published: 2024-08-09T21:01:41.721806727Z
+    remarks: Assessment Results generated from Lula
+    title: '[System Name] Security Assessment Results (SAR)'
+    version: 0.0.1
+  results:
+    - description: Assessment results for performing Validations with Lula version v0.4.5
+      findings:
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: 857121b1-2992-412c-b34a-504ead86e117
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-1
+            type: objective-id
+          title: 'Validation Result - Control: ac-1'
+          uuid: 818a331e-b6a2-4add-9112-8f6273ee5beb
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: c93c7d6a-e276-4050-9a54-437f7903b39e
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-2
+            type: objective-id
+          title: 'Validation Result - Control: ac-2'
+          uuid: a01d7e17-6459-468e-a5f3-adf2a63ddc7d
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: fc1bb76a-4ca5-4832-8cf9-6df509d3c996
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-3
+            type: objective-id
+          title: 'Validation Result - Control: ac-3'
+          uuid: 8a2fc9c6-99cd-4a3c-89e6-5c7a4d35bc94
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: 81a78740-c3ac-4ee3-a1e5-81944dd21b6c
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-4
+            type: objective-id
+          title: 'Validation Result - Control: ac-4'
+          uuid: c0c97b2f-64e5-4053-857f-6eb234c05443
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: 0649ec59-757a-483e-b8a9-bb4b7fbc4d6e
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-5
+            type: objective-id
+          title: 'Validation Result - Control: ac-5'
+          uuid: 0f33fd8c-eb40-4c2f-8058-925f940f24c3
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: 45b56420-3689-431d-8811-ec9bc648f64e
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-6
+            type: objective-id
+          title: 'Validation Result - Control: ac-6'
+          uuid: a91f6d1e-60fc-4c29-b103-99507cf0246a
+      props:
+        - name: threshold
+          ns: https://docs.lula.dev/ns
+          value: "false"
+        - name: target
+          ns: https://docs.lula.dev/ns
+          value: https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/yaml/NIST_SP-800-53_rev5_HIGH-baseline-resolved-profile_catalog.yaml
+      reviewed-controls:
+        control-selections:
+          - description: Controls Assessed by Lula
+            include-controls:
+              - control-id: ac-1
+              - control-id: ac-2
+              - control-id: ac-3
+              - control-id: ac-4
+              - control-id: ac-5
+              - control-id: ac-6
+        description: Controls validated
+        remarks: Validation performed may indicate full or partial satisfaction
+      start: 2024-08-09T21:01:41.721806574Z
+      title: Lula Validation Result
+      uuid: 1cbce339-6060-41fc-8433-009fec39c17c
+    - description: Assessment results for performing Validations with Lula version v0.4.5
+      findings:
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: 67dd59c4-0340-4aed-a49d-002815b50157
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-1
+            type: objective-id
+          title: 'Validation Result - Control: ac-1'
+          uuid: 79e3566a-2d12-405f-be18-cda1e1245296
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: 663e7c26-3bfe-4c71-b423-10d8338d5445
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-2
+            type: objective-id
+          title: 'Validation Result - Control: ac-2'
+          uuid: ab0e3aa3-354f-4b7e-8e32-6696b9ad6430
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: 07e1e996-5ae7-4b0b-b4c0-01f35729e442
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-3
+            type: objective-id
+          title: 'Validation Result - Control: ac-3'
+          uuid: 20a43742-3b08-431c-80eb-d2918c9422fb
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: ea9f3b4d-64c2-4631-ace5-55428552f9aa
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-4
+            type: objective-id
+          title: 'Validation Result - Control: ac-4'
+          uuid: 5d36dccb-025f-410e-b812-9508e2a4b77a
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: 1976b301-115f-48a4-b847-3374aa3b98d5
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-5
+            type: objective-id
+          title: 'Validation Result - Control: ac-5'
+          uuid: 3b739077-e565-4abe-a184-16c74bbf2fed
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: be129429-290b-4516-9390-f4d38067fbd0
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-6
+            type: objective-id
+          title: 'Validation Result - Control: ac-6'
+          uuid: 867d3f0a-e698-4a6c-825e-286fd4e9c3c0
+      props:
+        - name: threshold
+          ns: https://docs.lula.dev/ns
+          value: "false"
+        - name: target
+          ns: https://docs.lula.dev/ns
+          value: rev4
+      reviewed-controls:
+        control-selections:
+          - description: Controls Assessed by Lula
+            include-controls:
+              - control-id: ac-1
+              - control-id: ac-2
+              - control-id: ac-3
+              - control-id: ac-4
+              - control-id: ac-5
+              - control-id: ac-6
+        description: Controls validated
+        remarks: Validation performed may indicate full or partial satisfaction
+      start: 2024-08-09T21:01:41.720961277Z
+      title: Lula Validation Result
+      uuid: 2c4bc7b6-3e3b-463e-8a71-02f32e3de778
+    - description: Assessment results for performing Validations with Lula version v0.4.5
+      findings:
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: 67dd59c4-0340-4aed-a49d-002815b50157
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-1
+            type: objective-id
+          title: 'Validation Result - Control: ac-1'
+          uuid: 793e2aa7-63cd-4509-a13b-6005ef06f463
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: 663e7c26-3bfe-4c71-b423-10d8338d5445
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-2
+            type: objective-id
+          title: 'Validation Result - Control: ac-2'
+          uuid: d9e85bd3-6b6f-4906-aedc-31dc4f1f93f6
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: 07e1e996-5ae7-4b0b-b4c0-01f35729e442
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-3
+            type: objective-id
+          title: 'Validation Result - Control: ac-3'
+          uuid: 9bd7211c-be4b-4033-8592-70cd33efb967
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: ea9f3b4d-64c2-4631-ace5-55428552f9aa
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-4
+            type: objective-id
+          title: 'Validation Result - Control: ac-4'
+          uuid: ae78c8c0-b280-482e-b5f2-dc7c2afb0f0d
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: 1976b301-115f-48a4-b847-3374aa3b98d5
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-5
+            type: objective-id
+          title: 'Validation Result - Control: ac-5'
+          uuid: b189b36f-2007-45ed-b190-7bdcf9546ec3
+        - description: |
+            Control Implementation: 0631b5b8-e51a-577b-8a43-2d3d0bd9ced8 / Implemented Requirement: be129429-290b-4516-9390-f4d38067fbd0
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-6
+            type: objective-id
+          title: 'Validation Result - Control: ac-6'
+          uuid: e57a26f3-cf5b-41a4-8a72-ed32c2e5dbd5
+      props:
+        - name: threshold
+          ns: https://docs.lula.dev/ns
+          value: "false"
+        - name: target
+          ns: https://docs.lula.dev/ns
+          value: https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev4/yaml/NIST_SP-800-53_rev4_HIGH-baseline-resolved-profile_catalog.yaml
+      reviewed-controls:
+        control-selections:
+          - description: Controls Assessed by Lula
+            include-controls:
+              - control-id: ac-1
+              - control-id: ac-2
+              - control-id: ac-3
+              - control-id: ac-4
+              - control-id: ac-5
+              - control-id: ac-6
+        description: Controls validated
+        remarks: Validation performed may indicate full or partial satisfaction
+      start: 2024-08-09T21:01:41.720126224Z
+      title: Lula Validation Result
+      uuid: d53e57e3-d64d-4dfc-9087-8d9faea3bbe3
+    - description: Assessment results for performing Validations with Lula version v0.4.5
+      findings:
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: 857121b1-2992-412c-b34a-504ead86e117
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-1
+            type: objective-id
+          title: 'Validation Result - Control: ac-1'
+          uuid: 93b196b9-4046-4e19-808e-590a1c7f6671
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: c93c7d6a-e276-4050-9a54-437f7903b39e
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-2
+            type: objective-id
+          title: 'Validation Result - Control: ac-2'
+          uuid: a1689b3d-573b-48e9-b3c1-2c076342dbfd
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: fc1bb76a-4ca5-4832-8cf9-6df509d3c996
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-3
+            type: objective-id
+          title: 'Validation Result - Control: ac-3'
+          uuid: 4f0b5f28-1c22-4ee7-acb9-9c0160dd52e9
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: 81a78740-c3ac-4ee3-a1e5-81944dd21b6c
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-4
+            type: objective-id
+          title: 'Validation Result - Control: ac-4'
+          uuid: 2b138dbb-62db-457b-a669-2dffb291eba9
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: 0649ec59-757a-483e-b8a9-bb4b7fbc4d6e
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-5
+            type: objective-id
+          title: 'Validation Result - Control: ac-5'
+          uuid: 35913ca1-90de-4cfb-a18a-07047b665324
+        - description: |
+            Control Implementation: b1723ecd-a15a-5daf-a8e0-a7dd20a19abf / Implemented Requirement: 45b56420-3689-431d-8811-ec9bc648f64e
+            <how the specified control may be implemented if the containing component or capability is instantiated in a system security plan>
+          target:
+            status:
+              state: not-satisfied
+            target-id: ac-6
+            type: objective-id
+          title: 'Validation Result - Control: ac-6'
+          uuid: a78bb8e1-645d-445e-ba17-8f2810991d1c
+      props:
+        - name: threshold
+          ns: https://docs.lula.dev/ns
+          value: "false"
+        - name: target
+          ns: https://docs.lula.dev/ns
+          value: rev5
+      reviewed-controls:
+        control-selections:
+          - description: Controls Assessed by Lula
+            include-controls:
+              - control-id: ac-1
+              - control-id: ac-2
+              - control-id: ac-3
+              - control-id: ac-4
+              - control-id: ac-5
+              - control-id: ac-6
+        description: Controls validated
+        remarks: Validation performed may indicate full or partial satisfaction
+      start: 2024-08-09T21:01:41.719257158Z
+      title: Lula Validation Result
+      uuid: cb8e79f0-a3c0-488d-b7c1-de1b6ae091e7
+  uuid: 0f671a5d-b080-496f-9c23-5d6c3c1a11f7

@@ -1,0 +1,74 @@
+name: Test
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: List directory contents for debugging
+        run: ls -al
+
+      - name: Setup Lula
+        uses: ./setup/
+        with:
+             # renovate: datasource=github-tags depName=defenseunicorns/lula extractVersion="^v(.*)$" versioning=semver-coerced
+          version: v0.4.5
+
+      - name: Lint OSCAL file
+        uses: ./lint/
+        with:
+            oscal_target: ./test/valid-multi-component.yaml
+
+      - name: Validate OSCAL component-definition file without options
+        uses: ./validate/
+        with:
+          component_definition: ./test/valid-multi-component.yaml
+          assessment_result: ./test/oscal-assessment-results.yaml
+          options:
+
+      - name: Validate OSCAL component-definition file with options
+        uses: ./validate/
+        with:
+          component_definition: ./test/valid-multi-component.yaml
+          assessment_result: ./test/oscal-assessment-results.yaml
+          options: -t rev5
+
+
+      - name: Evaluate OSCAL assessment-results file without options
+        uses: ./evaluate/
+        with:
+          threshold: ./test/oscal-assessment-results.yaml
+
+      - name: Evaluate OSCAL assessment-results files without options
+        uses: ./evaluate/
+        with:
+          threshold: ./test/oscal-assessment-results.yaml
+          file: ./test/assessment-results.yaml
+
+
+      - name: Evaluate OSCAL assessment-results file(s) with options
+        uses: ./evaluate/
+        with:
+          threshold: ./test/oscal-assessment-results.yaml
+          options: -t rev5
+
+      - name: Evaluate OSCAL assessment-results files with options
+        uses: ./evaluate/
+        with:
+          threshold: ./test/oscal-assessment-results.yaml
+          file: ./test/assessment-results.yaml
+          options: -t rev5

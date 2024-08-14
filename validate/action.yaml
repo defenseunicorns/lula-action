@@ -1,0 +1,32 @@
+name: "Validate"
+description: "Performs Lula Validate"
+
+inputs:
+  component_definition:
+    description: "The component_definition file to be validated"
+  assessment_result:
+    description: "The output location of the assessment result file. Defaults to ./assessment_results.yaml if not specified"
+  options:
+    description: "Any additional flag options"
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: |
+       #!/bin/bash
+        assessment_result="${{ inputs.assessment_result }}"
+        component_definition="${{ inputs.component_definition }}"
+        options="${{ inputs.options }}"
+
+        # Check if the component_definition exists
+        if [ ! -f "$component_definition" ]; then
+          echo "Component Definition does not exist"
+          exit 1
+        else
+          # Check if assessment_result output is set
+          if [ -z "$assessment_result" ]; then
+           assessment_result="./assessment-results.yaml"
+          fi
+          lula validate -f "$component_definition" -o "$assessment_result" $options
+        fi
